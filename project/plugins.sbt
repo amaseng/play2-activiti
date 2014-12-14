@@ -1,7 +1,8 @@
-addSbtPlugin("com.typesafe.sbt" % "sbt-site" % "0.6.2")
+// The Typesafe repository 
+resolvers += "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
 
-resolvers += "jgit-repo" at "http://download.eclipse.org/jgit/maven"
+// Use the Play sbt plugin for Play projects
+addSbtPlugin("com.typesafe.play" % "sbt-plugin" % "2.2.4")
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-ghpages" % "0.5.0")
+addSbtPlugin("com.typesafe.sbt" % "sbt-pgp" % "0.8.1")
 
-addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.7")

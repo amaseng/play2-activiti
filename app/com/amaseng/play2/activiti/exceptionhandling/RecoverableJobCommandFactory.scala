@@ -1,4 +1,4 @@
-package com.lunatech.play.activiti.exceptionhandling
+package com.amaseng.play2.activiti.exceptionhandling
 
 import org.activiti.engine.impl.jobexecutor.FailedJobCommandFactory
 

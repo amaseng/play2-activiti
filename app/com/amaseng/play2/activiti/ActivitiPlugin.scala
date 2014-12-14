@@ -1,11 +1,10 @@
-package com.lunatech.play.activiti
+package com.amaseng.play2.activiti
 
 import scala.collection.JavaConverters.asScalaBufferConverter
 import org.activiti.engine.{ ProcessEngine, ProcessEngineConfiguration }
 import org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl
 import org.activiti.engine.impl.history.HistoryLevel
-import com.lunatech.play.activiti.db.SquerylJoinedTransactionFactory
-import com.lunatech.play.activiti.exceptionhandling.RecoverableJobCommandFactory
+import com.amaseng.play2.activiti.exceptionhandling.RecoverableJobCommandFactory
 import play.api.{ Application, Logger, Play, Plugin }
 import play.api.db.DB
 
@@ -22,7 +21,6 @@ class ActivitiPlugin(implicit app: Application) extends Plugin {
       setDataSource(DB.getDataSource()(app)).
       setDatabaseSchemaUpdate(ProcessEngineConfiguration.DB_SCHEMA_UPDATE_TRUE).
       setJobExecutorActivate(true).
-      setTransactionFactory(new SquerylJoinedTransactionFactory()).
       setHistory(HistoryLevel.ACTIVITY.getKey)
 
     addProjectConfiguration(configuration).buildProcessEngine()

@@ -1,4 +1,4 @@
-package com.lunatech.play.activiti
+package com.amaseng.play2.activiti
 
 import scala.collection.JavaConverters.{ asScalaBufferConverter, mapAsScalaMapConverter }
 

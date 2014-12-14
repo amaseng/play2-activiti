@@ -1,31 +1,52 @@
-organization := "com.lunatech"
+organization := "com.amaseng"
 
 name := "play2-activiti"
 
-version := "0.2.1-SNAPSHOT"
+version := "0.1.0-SNAPSHOT"
 
-scalaVersion := "2.10.0"
+scalaVersion := "2.10.4"
 
-resolvers ++= Seq(
-  "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
-  "Alfresco Maven Repository" at "https://maven.alfresco.com/nexus/content/groups/public/")
+playScalaSettings
 
 libraryDependencies ++= Seq(
-  "play" %% "play" % "2.1.0",
-  "play" %% "play-jdbc" % "2.1.0",
-  "org.activiti" % "activiti-engine" % "5.12",
-  // For the SquerylJoinedTransactionFactory
-  "org.squeryl" %% "squeryl" % "0.9.5-6")
+  "com.typesafe.play" %% "play-jdbc" % "2.2.4",
+  "org.activiti" % "activiti-engine" % "5.16.4",
+  "org.scalatest" % "scalatest_2.10" % "2.2.2" % "test"
+)
 
-publishTo <<= version { (v: String) =>
-  val path = if(v.trim.endsWith("SNAPSHOT")) "snapshots-public" else "releases-public"
-  Some(Resolver.url("Lunatech Artifactory", new URL("http://artifactory.lunatech.com/artifactory/%s/" format path)))
-}
+publishTo <<= version { v: String =>
+       val nexus = "https://oss.sonatype.org/"
+       if (v.trim.endsWith("SNAPSHOT")) Some("publish-snapshots" at nexus + "content/repositories/snapshots")
+       else                             Some("publish-releases" at nexus + "service/local/staging/deploy/maven2")
+     }
 
-site.settings
+publishMavenStyle := true
 
-site.includeScaladoc()
+publishArtifact in Test := false
 
-ghpages.settings
+pomIncludeRepository := { _ => false }
 
-git.remoteRepo := "git@github.com:lunatech-labs/play2-activiti.git"
+pomExtra := (
+       <url>https://github.com/amaseng/play2-activiti</url>
+         <licenses>
+           <license>
+             <name>the Apache License, ASL Version 2.0</name>
+             <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+             <distribution>repo</distribution>
+           </license>
+         </licenses>
+         <scm>
+           <url>https://github.com/amaseng/play2-activiti</url>
+           <connection>scm:git:git@github.com:amaseng/play2-activiti.git</connection>
+           <developerConnection>
+             scm:git:git@github.com:amaseng/play2-activiti.git
+           </developerConnection>
+         </scm>
+         <developers>
+           <developer>
+             <id>cheeseng</id>
+             <name>Chua Chee Seng</name>
+             <email>cheeseng@amaseng.com</email>
+           </developer>
+         </developers>
+      )

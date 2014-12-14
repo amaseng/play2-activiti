@@ -1,4 +1,5 @@
-package com.lunatech.play.activiti
+package com.amaseng.play2.activiti
+
 import org.joda.time.{ DateTime, Duration }
 import play.api.Play
 import scala.collection.JavaConverters._

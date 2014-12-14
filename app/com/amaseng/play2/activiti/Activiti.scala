@@ -1,4 +1,4 @@
-package com.lunatech.play.activiti
+package com.amaseng.play2.activiti
 
 import play.api._
 
