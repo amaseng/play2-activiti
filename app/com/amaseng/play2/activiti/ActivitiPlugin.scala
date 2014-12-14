@@ -30,17 +30,19 @@ class ActivitiPlugin(implicit app: Application) extends Plugin {
    * Start the Activiti Process Engine and load new process definitions.
    */
   override def onStart() {
-    Logger.info("Starting Activiti")
+    Logger.info("Starting Activiti...")
     engine
     loadNewProcessDefinitions()
+    Logger.info("Activiti started successfully.")
   }
 
   /**
    * Stop the Activiti Process Engine
    */
   override def onStop() {
-    Logger.info("Stopping Activiti")
+    Logger.info("Stopping Activiti...")
     engine.close()
+    Logger.info("Activiti stopped successfully.")
   }
 
   private def loadNewProcessDefinitions() {
