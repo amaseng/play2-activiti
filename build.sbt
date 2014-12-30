@@ -9,7 +9,7 @@ scalaVersion := "2.10.4"
 playScalaSettings
 
 libraryDependencies ++= Seq(
-  "com.typesafe.play" %% "play-jdbc" % "2.2.4",
+  "com.typesafe.play" %% "play-jdbc" % "2.2.3",
   "org.activiti" % "activiti-engine" % "5.16.4",
   "org.scalatest" % "scalatest_2.10" % "2.2.2" % "test"
 )
